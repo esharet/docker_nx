@@ -1,0 +1,7 @@
+# dronekit # install from cutom whell
+CherryPy
+Cython
+pyzmq
+msgpack
+protobuf
+opencv-python
