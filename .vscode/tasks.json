@@ -1,0 +1,13 @@
+{
+    // Backup a Docker image as a tar file
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Backup Docker Image",
+            "type": "shell",
+            "command": "docker save rome_nx-dev -o ${workspaceFolder}/images/rome_nx-dev.tar",
+            "problemMatcher": [],
+            "detail": "Saves the specified Docker image as a tar archive."
+        }
+    ]
+}

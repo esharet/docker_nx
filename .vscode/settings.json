@@ -1,0 +1,28 @@
+{
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "Project backup",
+                "description": "Project backup",
+                "files": [
+                    ".devcontainer/**",
+                    "**/*.*",
+                ],
+                "exclude": [
+                    "images/**",
+                    "bk/**"
+                ]
+            }
+        ],
+        "targets": [
+            {
+                "type": "zip",
+                "name": "My ZIP file",
+                "description": "Create a ZIP file in a target directory",
+
+                "open": false,
+                "dir": "${workspaceRoot}/bk",
+            }
+        ]
+    }
+}
