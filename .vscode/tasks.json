@@ -8,6 +8,13 @@
             "command": "docker save rome_nx-dev -o ${workspaceFolder}/images/rome_nx-dev.tar",
             "problemMatcher": [],
             "detail": "Saves the specified Docker image as a tar archive."
+        },
+        {
+            "label": "Backup gazebo 11",
+            "type": "shell",
+            "command": "docker save gazebo:11 -o ${workspaceFolder}/images/gazebo_11.tar",
+            "problemMatcher": [],
+            "detail": "Saves the specified Docker image as a tar archive."
         }
     ]
 }

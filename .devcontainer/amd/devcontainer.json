@@ -1,6 +1,6 @@
 {
-    "name": "rome_nx",
-    "dockerComposeFile": "../docker-compose.yaml",
+    "name": "docker_nx",
+    "dockerComposeFile": "../../docker-compose.yaml",
     "service": "dev",
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",

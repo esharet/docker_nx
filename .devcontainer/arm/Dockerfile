@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0 AS base_arm64
 
 # Install Python and required packages
 RUN apt-get update && \
@@ -43,21 +43,7 @@ RUN apt-get update && \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-    && apt-get -y install --no-install-recommends \
-        libgstreamer1.0-0 \
-        gstreamer1.0-plugins-base \
-        gstreamer1.0-plugins-good \
-        gstreamer1.0-plugins-bad \
-        gstreamer1.0-plugins-ugly \
-        gstreamer1.0-tools \
-        python3-gi \
-        gir1.2-gstreamer-1.0 \
-        libgstreamer-plugins-base1.0-dev \
-        gstreamer1.0-libav \
-        gstreamer-1.0 \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+# gstreamer install by default from jetpack (base image)
     
 # Copy requirements.txt and install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
@@ -75,3 +61,29 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 COPY tmux.conf /etc/tmux.conf
+
+RUN apt-get update && \
+    apt-get install -y \
+        libx11-6 \
+        libx11-xcb1 \
+        libxcb1 \
+        libxcb-xinerama0 \
+        libxcb-icccm4 \
+        libxcb-image0 \
+        libxcb-keysyms1 \
+        libxcb-randr0 \
+        libxcb-render0 \
+        libxcb-shm0 \
+        libxcb-shape0 \
+        libxcb-sync1 \
+        libxcb-xfixes0 \
+        libxcb-xkb1 \
+        libxrender1 \
+        libxext6 \
+        libxfixes3 \
+        libxrandr2 \
+        libxi6 \
+        libgl1-mesa-glx \
+        libglib2.0-0 \
+        libsm6 \
+    && rm -rf /var/lib/apt/lists/*
